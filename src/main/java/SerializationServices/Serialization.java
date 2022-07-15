@@ -22,23 +22,7 @@ public class Serialization {
         }
     }
 
-    static Person deserializePerson(Person person) throws IOException {
-        ObjectInputStream personInputStream = null;
-        Person newPerson = null;
-        try {
-            FileInputStream personFile = new FileInputStream(person.getFirstName()+".dat");
-            personInputStream = new ObjectInputStream(personFile);
-            newPerson = (Person) personInputStream.readObject();
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        } finally {
-            if (personInputStream != null) {
-                personInputStream.close();
-            }
-        }
 
-        return newPerson;
-    }
 
 
 }

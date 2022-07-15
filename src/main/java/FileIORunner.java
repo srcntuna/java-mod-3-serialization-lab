@@ -1,7 +1,4 @@
-import IOServices.AddPersonService;
-import IOServices.CsvIOService;
-import IOServices.IOService;
-import IOServices.JsonIOService;
+import IOServices.*;
 import InputServices.ScannerUserInputService;
 import InputServices.SysoutUserOutputService;
 import InputServices.UserInputService;
@@ -9,7 +6,8 @@ import InputServices.UserOutputService;
 import OptionServices.OptionsService;
 import PersonServices.Person;
 import PersonServices.PrintPeopleService;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import SerializationServices.Serialization;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,6 +29,17 @@ public class FileIORunner {
             } else if(initialOption == 2){
                 peopleList = new JsonIOService().parseFile("person.json");
                 System.out.println("line 33" + peopleList.getClass());
+            } else if (initialOption == 5){
+                     RestorePersonService restorePersonService = new RestorePersonService();
+                    int deserializeOption = optionsService.getDeseralizeOption();
+                    Person deserializedPerson;
+                    if(deserializeOption == 1){
+                        deserializedPerson = restorePersonService.deserializePerson("Henrik.dat");
+                    }else {
+                        deserializedPerson = restorePersonService.deserializePerson("Zlatan.dat");
+                    }
+                System.out.println(deserializedPerson);
+                    return;
             }else{
                 peopleList = new ArrayList<>();
             }

@@ -9,6 +9,9 @@ public class Person implements Serializable {
     private int birthMonth;
     private int birthDay;
 
+    private transient String note = "this is a transient variable";
+
+
     public Person(){
 
     }
@@ -19,7 +22,6 @@ public class Person implements Serializable {
         this.birthYear = birthYear;
         this.birthMonth = birthMonth;
         this.birthDay = birthDay;
-
     }
 
 

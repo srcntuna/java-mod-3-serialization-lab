@@ -17,7 +17,7 @@ public class OptionsService {
         int option;
         try{
             option = Integer.parseInt(optionStr);
-            if(option < 1 || option > 4){
+            if(option < 1 || option > 5){
                 System.out.println("Please type a number for option within range!");
                 return getInitialOption();
             }
@@ -47,6 +47,24 @@ public class OptionsService {
 
     }
 
+    public int getDeseralizeOption(){
+        printDeserealizeOptions();
+        String optionStr = userInputService.getUserInput();
+        int option;
+        try{
+            option = Integer.parseInt(optionStr);
+            if(option < 1 || option > 2){
+                System.out.println("Please type a number for option within range!");
+                return getToDoOption();
+            }
+        }catch (Exception e){
+            System.out.println("Please type a number for option!");
+            return getToDoOption();
+        }
+        return option;
+
+    }
+
 
     public void printToDoOptions(){
 
@@ -62,14 +80,26 @@ public class OptionsService {
 
         System.out.println("WELCOME!");
         System.out.println("Please choose an option!");
-        System.out.println(" ------------------ Options ----------------------- ");
-        System.out.println("|  1.    Restore the list of people from CSV file  |");
-        System.out.println("|  2.    Restore the list of people from JSON file |");
-        System.out.println("|  3.    Start a brand new list for CSV file.      |");
-        System.out.println("|  4.    Start a brand new list for JSON file.     |");
-        System.out.println(" -------------------------------------------------- ");
+        System.out.println(" ------------------ Options ------------------------- ");
+        System.out.println("|  1.    Restore the list of people from CSV file    |");
+        System.out.println("|  2.    Restore the list of people from JSON file   |");
+        System.out.println("|  3.    Start a brand new list for CSV file.        |");
+        System.out.println("|  4.    Start a brand new list for JSON file.       |");
+        System.out.println("|  5.    Restore a person from their serialized copy |");
+        System.out.println(" ---------------------------------------------------- ");
 
     }
+
+    public void printDeserealizeOptions(){
+
+        System.out.println("Please choose an option!");
+        System.out.println(" ----------------Options ------------ ");
+        System.out.println("|  1.    Restore the Henrik.dat file |");
+        System.out.println("|  2.    Restore the Zlatan.dat file |");
+        System.out.println(" ------------------------------------ ");
+
+    }
+
 
 
 }
